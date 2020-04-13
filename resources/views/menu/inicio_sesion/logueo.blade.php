@@ -6,8 +6,10 @@
 }
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  /* background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF); */
+  background: #56ABE8;
+  background: linear-gradient(to right, #565EE8, #5EE6FF);
 }
 
 .card-signin {
@@ -103,11 +105,52 @@ body {
 
 .btn-google {
   color: white;
+  text-align:center;
   background-color: #ea4335;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
 }
 
 .btn-facebook {
   color: white;
+  text-align:center;
   background-color: #3b5998;
+  border-radius: 25px;
+  width: 50px;
+    height: 50px;
+}
+.overlay{
+    position: absolute;
+
+    z-index: 10;
+    width: 100%;
+    height: 40%;
+    bottom:-10%;
+    background-color: white;
+    transform: skewY(10deg);
+    border-radius : 1rem;
+
+}
+.card-change {
+  border: 0;
+  margin-top:40%!important;
+  border-radius : 1rem;
+  box-shadow: 0 0.7rem 1rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-change  .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-change  .card-body {
+  padding: 2rem;
+}
+.cardBackground{
+  background-image: url('img/circulo2.png'), url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png');
+  background-position:-150% 150%, 50% 130%, 190% 150%,-130% -55%, 250% -55%, 50% -30%;
+  background-repeat: no-repeat, no-repeat,no-repeat;
 }
 </style>
