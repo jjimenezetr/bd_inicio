@@ -3,21 +3,23 @@
 <style type="text/css">
 	.select2-container .select2-selection--single{
 	    height:34px !important;
+        width: 100% !important;
 	}
 	.select2-container--default .select2-selection--single{
-	         border: 1px solid #ccc !important; 
-	     border-radius: 0px !important; 
+	         border: 1px solid #ccc !important;
+	     border-radius: 0px !important;
+         width: 100% !important;
 	}
 </style>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header" id="tarjeta">Fomulario de usuario</div>
+        <div class="card-header" id="tarjeta"><i class="fa fa-file-alt"></i>&nbsp;Formulario de usuario</div>
         <div class="card-body">
           <form method="POST" id="form1" name="form1" action="{{ route($formulario_usuario,$id_usuario) }}" accept-charset="UTF-8" enctype="multipart/form-data">
               <input type="text" id="id_usuario" name="id_usuario" value="{{$id_usuario}}" hidden />
-              {{ csrf_field() }} 
+              {{ csrf_field() }}
               <div class="flash-message">
                   @if ($errors->any())
                       <div class="alert alert-danger">
@@ -38,62 +40,73 @@
                       </div>
                   @endif
               </div>
-              <div class="form-group">
-                <label>Persona</label>
-                <select class="form-control select2" id="id_persona" name="id_persona">
-                <option id="id_persona" name="id_persona" value="0">Seleccionar persona</option>
-                    @foreach($personas as $p)
-                      @if($id_persona==$p->id_persona)
-                          <option value="{{$p->id_persona}}" selected><?php echo ($p->nombre.' '.$p->apellido_paterno.' '.$p->apellido_materno); ?></option> 
-                      @else
-                          <option value="{{$p->id_persona}}" ><?php echo ($p->nombre.' '.$p->apellido_paterno.' '.$p->apellido_materno); ?></option> 
-                      @endif
-                    @endforeach
-                </select>
-              </div>  
-              <div class="form-group">
-                <label for="label">Usuario</label>
-                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" value="{{$nombre_usuario}}" placeholder="Usuario">
+              <div class="form-group row">
+
+                  <div class="col-12 col-md-12">
+                  <label>Persona</label>
+                        <select class="form-control select2" style="width: 100%;" id="id_persona" name="id_persona">
+                        <option id="id_persona" name="id_persona" value="0">Seleccionar persona</option>
+                            @foreach($personas as $p)
+                            @if($id_persona==$p->id_persona)
+                                <option value="{{$p->id_persona}}" selected><?php echo ($p->nombre.' '.$p->apellido_paterno.' '.$p->apellido_materno); ?></option>
+                            @else
+                                <option value="{{$p->id_persona}}" ><?php echo ($p->nombre.' '.$p->apellido_paterno.' '.$p->apellido_materno); ?></option>
+                            @endif
+                            @endforeach
+                        </select>
+                  </div>
+
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Correo</label>
-                <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{$correo}}" placeholder="Correo">
+              <div class="form-group row">
+                <div class="col-12 col-md-6">
+                    <label for="label">Usuario</label>
+                    <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" value="{{$nombre_usuario}}" placeholder="Usuario">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="exampleInputEmail1">Correo</label>
+                    <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp" value="{{$correo}}" placeholder="Correo">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="inputPassword">Contraseña</label>
-                <input type="password" class="form-control" id="contrasena" name="contrasena" value="{{$contrasena}}" placeholder="Contraseña nueva">
+              <div class="form-group row">
+                  <div class="col-12 col-md-6">
+                    <label label for="inputPassword">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" value="{{$contrasena}}" placeholder="Contraseña nueva">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="inputPassword">Repetir contraseña</label>
+                    <input type="password" class="form-control" id="contrasena2" name="contrasena2" value="{{$contrasena2}}" placeholder="Repetir contraseña">
+                  </div>
               </div>
+
               <div class="form-group">
-                <label for="inputPassword">Repetir contraseña</label>
-                <input type="password" class="form-control" id="contrasena2" name="contrasena2" value="{{$contrasena2}}" placeholder="Repetir contraseña">
-              </div>
-              <div class="form-group">        
                 <div>
                   @if($foto)
-                  <img onclick="subirFoto()" src="{{ asset('imagen_usuario/'.$foto) }}" id="imagen" name="imagen"  class="img-thumbnail" alt="Foto" style="width: 60px; height: 60px; " >
+                  <img onclick="subirFoto()" src="{{ asset('imagen_usuario/'.$foto) }}" width="150" id="imagen" name="imagen"  class="img-thumbnail" alt="Foto"  title="Seleccionar imagen">
                   @else
-                  <img onclick="subirFoto()" src="{{ asset('imagen_carga/'.'avatar2.png') }}" id="imagen" name="imagen" alt=" Subir Foto" class="img-thumbnail"  style="width: 60px; height: 60px; ">
+                  <img onclick="subirFoto()" src="{{ asset('imagen_carga/'.'avatar2.png') }}" width="150" id="imagen" name="imagen" alt=" Subir Foto" class="img-thumbnail"   title="Seleccionar imagen">
                   @endif
                 </div>
                 <input value="{{'imagen_usuario/'.$foto}}" id="foto" class="foto"   name="foto" type="file" hidden />
                 <input type="text" class="form-control" id="foto2" name="foto2" value="{{$foto}}" hidden>
               </div>
-              <div class="form-group">
+              <div class="form-group ">
                 <label for="label">Roles</label>
-                <select id="id_roles" name="id_roles[]" class=" form-control select2"  value=""   multiple>
+                <select id="id_roles" name="id_roles[]" class="form-control select2" style="width: 100%;"  value=""   multiple>
                   @foreach($roles as $r)
                     @if($r->cantidad_roles>0)
-                      <option value="{{$r->id_rol}}" selected>{{$r->nombre_rol}}</option> 
+                      <option value="{{$r->id_rol}}" selected>{{$r->nombre_rol}}</option>
                     @else
-                      <option value="{{$r->id_rol}}" >{{$r->nombre_rol}}</option> 
+                      <option value="{{$r->id_rol}}" >{{$r->nombre_rol}}</option>
                     @endif
                   @endforeach
                 </select>
               </div>
-              <button type="submit" class="btn btn-success">Guardar</button>
-              @if ($accesos['lista_usuarios']=='true')
-                  <a class="btn btn-danger" id="btn_volver" name="btn_volver"  href="{{route('lista_usuarios')}}" >Volver</a>
-              @endif
+              <div class="form-group mt-2">
+                @if ($accesos['lista_usuarios']=='true')
+                    <a class="btn btn-danger" id="btn_volver" name="btn_volver"  href="{{route('lista_usuarios')}}" ><i class="fa fa-hand-point-left"></i>&nbsp;Volver</a>
+                @endif
+                <button type="submit" class="btn btn-success pull-right"><i class="fa fa-save"></i>&nbsp;Guardar</button>
+              </div>
           </form>
         </div>
       </div>

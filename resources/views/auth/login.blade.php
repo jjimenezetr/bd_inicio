@@ -3,7 +3,7 @@
 <body>
   <div class="container  h-100 mx-auto" >
     <div class="row align-items-center h-100 mx-auto" >
-        <div class="card col-lg-5 mx-auto h-75  cardBackground mx-auto" >
+        <div class="card col-lg-5 mx-auto   cardBackground mx-auto" >
         <!-- style="background: url('img/circulo2.png') no-repeat -45% -45% #f1f1f, url('img/circulo2.png') no-repeat 5% 5% " -->
           <div class="col-sm-11 col-md-11 col-lg-11 mx-auto ">
             <div class="card card-change my-5 mx-auto" >
@@ -18,7 +18,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>Error de credenciales</strong>
                         </span>
-                    @endif  
+                    @endif
                     <label for="login">Usuario, Correo</label>
                   </div>
                   <div class="form-label-group">

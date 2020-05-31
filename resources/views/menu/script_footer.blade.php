@@ -47,8 +47,14 @@
         });
         window.setTimeout(function() {
             $(".exito").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove(); 
+                $(this).remove();
             });
         }, 2000);
 
+        // sidebar complemento
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
     </script>

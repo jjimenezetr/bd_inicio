@@ -28,7 +28,7 @@
                 @endif
             </div>
             @if ($accesos['nuevo_persona']=='true')
-            <a class="btn btn-success" id="btn_nuevo" name="btn_nuevo" href="{{ route('nuevo_persona',['id' =>0])}}" >Nuevo</a>
+            <a class="btn btn-success" id="btn_nuevo" name="btn_nuevo" href="{{ route('nuevo_persona',['id' =>0])}}" ><i class="fa fa-user-tie"></i>&nbsp;Nuevo</a>
             @endif
             <table id="buscador_tabla" class="table table-striped table-bordered " >
               <thead>
@@ -57,10 +57,10 @@
                   <td>{{$p->celular}}</td>
                   <td>
                   @if ($accesos['editar_persona']=='true')
-                    <a class="btn btn-primary" href="{{ route('editar_persona',['id' => $p->id_persona])}}" ><i class=" fa fa-pencil-square-o"></i>Editar</a>
+                    <a class="btn btn-primary" href="{{ route('editar_persona',['id' => $p->id_persona])}}" title="Editar"><i class=" fa fa-pencil-square-o"></i></a>
                   @endif
                   @if ($accesos['eliminar_persona']=='true')
-                    <a class="btn btn-danger" href="#" onclick="eliminar('{{$p->id_persona}}');"><i class="fa fa-trash"></i>Eliminar</a>
+                    <a class="btn btn-danger" href="#" onclick="eliminar('{{$p->id_persona}}');" title="Eliminar"><i class="fa fa-trash"></i></a>
                   @endif
                   </td>
                 </tr>
@@ -75,7 +75,7 @@
 <script type="text/javascript">
   window.setTimeout(function() {
       $(".exito").fadeTo(500, 0).slideUp(500, function(){
-          $(this).remove(); 
+          $(this).remove();
       });
   }, 2000);
   function eliminar(id){

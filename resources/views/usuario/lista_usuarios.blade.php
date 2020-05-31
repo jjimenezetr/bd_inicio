@@ -7,15 +7,15 @@
               <div class="card-header" id="tarjeta"><i class="fa fa-reorder"></i>&nbsp;Lista de usuarios </div>
               <div class="card-body " >
                     @if ($accesos['nuevo_usuario']=='true')
-                    <a class="btn btn-success" id="btn_nuevo" name="btn_nuevo"  href="{{ route('nuevo_usuario',['id' =>0])}}" ><i class="fa fa-user-plus"></i>Nuevo</a>
+                    <a class="btn btn-success" id="btn_nuevo" name="btn_nuevo"  href="{{ route('nuevo_usuario',['id' =>0])}}" ><i class="fa fa-user"></i> &nbsp;Nuevo</a>
                     @endif
-                    <table id="buscador_tabla" class="table table-striped table-bordered" > 
+                    <table id="buscador_tabla" class="table table-striped table-bordered" >
                       <thead>
                         <tr>
                           <th scope="col">Nro</th>
                           <th scope="col">Usuario</th>
                           <th scope="col">Correo</th>
-                          <th scope="col">Persona</th>      
+                          <th scope="col">Persona</th>
                           <th scope="col">Roles</th>
                           <th scope="col">Acciones</th>
                         </tr>
@@ -32,10 +32,10 @@
                           <td> <?php echo ($u->roles); ?> </td>
                           <td>
                             @if ($accesos['editar_usuario']=='true')
-                            <a class="btn btn-primary" href="{{ route('editar_usuario',['id' => $u->id_usuario])}}" ><i class=" fa fa-pencil-square-o"></i>Editar</a>
+                            <a class="btn btn-primary" href="{{ route('editar_usuario',['id' => $u->id_usuario])}}" title="Editar" ><i class=" fa fa-pencil-square-o"></i></a>
                             @endif
                             @if ($accesos['eliminar_usuario']=='true')
-                            <a class="btn btn-danger" href="#" onclick="eliminar('{{$u->id_usuario}}');"><i class="fa fa-trash"></i>Eliminar</a>
+                            <a class="btn btn-danger" href="#" onclick="eliminar('{{$u->id_usuario}}');" title="Eliminar"><i class="fa fa-trash"></i></a>
                             @endif
                           </td>
                         </tr>

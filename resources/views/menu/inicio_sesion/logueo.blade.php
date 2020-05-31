@@ -134,9 +134,10 @@ body {
 }
 .card-change {
   border: 0;
-  margin-top:40%!important;
+  /* margin-top:40%!important; */
   border-radius : 1rem;
   box-shadow: 0 0.7rem 1rem 0 rgba(0, 0, 0, 0.3);
+  background-color: transparent;
 }
 
 .card-change  .card-title {
@@ -149,8 +150,15 @@ body {
   padding: 2rem;
 }
 .cardBackground{
-  background-image: url('img/circulo2.png'), url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png'),url('img/circulo2.png');
-  background-position:-150% 150%, 50% 130%, 190% 150%,-130% -55%, 250% -55%, 50% -30%;
-  background-repeat: no-repeat, no-repeat,no-repeat;
+  background-image: url('img/115.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position:center;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }
 </style>
